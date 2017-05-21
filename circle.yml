@@ -3,9 +3,9 @@ machine:
     version: 7.10.0
 dependencies:
   override:
-    - yarn:
-      - cd orchestrator && yarn install
-      - cd client && yarn install
+    - yarn
+    - cd orchestrator && yarn install
+    - cd client && yarn install
 test:
   override:
     - yarn test
