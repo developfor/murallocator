@@ -1,7 +1,6 @@
 'use strict';
 
 var chromedriver = require( 'chromedriver' );
-var shell = require('shelljs');
 
 module.exports = {
 	before: function ( done ) {
