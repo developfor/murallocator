@@ -7,7 +7,7 @@ class Header extends Component {
     return (
       <div>
         <link href="https://fonts.googleapis.com/css?family=Lato|Roboto:300,400,500" rel="stylesheet"/>
-        <h1>Title</h1>
+        <h1 id='title'>Title</h1>
       </div>
     );
   }

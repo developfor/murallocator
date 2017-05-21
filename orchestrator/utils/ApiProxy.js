@@ -17,7 +17,6 @@ module.exports = class ApiProxy extends proxy {
             filter: function(req, res) {
                 console.log(`filter: req.method= ${req.method}`);
                 return true;
-                //return req.method == 'GET';
             }
         });
     }
