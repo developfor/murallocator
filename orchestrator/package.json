@@ -28,6 +28,6 @@
   },
   "scripts": {
     "test": "yarn run test-unit",
-    "test-unit": "NODE_ENV=test mocha --require co-mocha --reporter spec --timeout 10000"
+    "test-unit": "NODE_ENV=test mocha"
   }
 }
