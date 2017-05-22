@@ -6,7 +6,11 @@ dependencies:
     - yarn
     - cd orchestrator && yarn install
     - cd client && yarn install
+machine:
+  post:
+    - NODE_ENV=test yarn start:
+      - background: true
+    - sleep 5
 test:
   override:
-    - NODE_ENV=test yarn start --daemon
     - yarn test
