@@ -9,7 +9,7 @@ dependencies:
 machine:
   post:
     - NODE_ENV=test yarn start:
-      - background: true
+      background: true
     - sleep 5
 test:
   override:
