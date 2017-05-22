@@ -5,12 +5,11 @@ dependencies:
   override:
     - yarn
     - cd orchestrator && yarn install
-    - cd client && yarn install
-machine:
-  post:
+    - cd client && yarn install  
+test:
+  pre:
     - NODE_ENV=test yarn start:
       background: true
     - sleep 5
-test:
   override:
     - yarn test
