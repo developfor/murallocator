@@ -5,11 +5,11 @@ dependencies:
   override:
     - yarn
     - cd orchestrator && yarn install
-    - cd client && yarn install  
-test:
-  pre:
-    - NODE_ENV=test yarn start:
+    - cd client && yarn install
+  post:
+    - NODE_ENV=test yarn run ci-start:
       background: true
-    - sleep 5
+    - sleep 150
+test:
   override:
     - yarn test
