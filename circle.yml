@@ -9,7 +9,7 @@ dependencies:
   post:
     - NODE_ENV=test yarn run ci-start &:
       background: true
-    - sleep 150
+    - sleep 5
 test:
   override:
     - yarn test
