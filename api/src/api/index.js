@@ -1,13 +1,21 @@
 import { Router } from 'express';
 import { version } from '../../package.json';
-import facets from './facets';
+import murals, {
+    featuredMurals,
+    nearByMurals,
+    recentlyUploadedMurals } from './murals';
 
+/* eslint-disable no-unused-vars */
 export default ({ config, db }) => {
+/* eslint-enable no-unused-vars */
+
   const api = Router();
 
-  // mount the facets resource
-  api.use('/facets', facets({ config, db }));
-
+  // murals page
+  api.use('/murals/featured-murals', featuredMurals);
+  api.use('/murals/near-by-murals', nearByMurals);
+  api.use('/murals/recently-uploaded-murals', recentlyUploadedMurals);
+  api.use('/murals', murals());
   // perhaps expose some API metadata at the root
   api.get('/', (req, res) => {
     res.json({ version });
