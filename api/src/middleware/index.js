@@ -1,9 +1,10 @@
 import { Router } from 'express';
 
+/* eslint-disable no-unused-vars */
 export default ({ config, db }) => {
-	let routes = Router();
+  const routes = Router();
 
-	// add middleware here
-
-	return routes;
-}
+  // add middleware here
+  return routes;
+};
+/* eslint-enable no-unused-vars */
