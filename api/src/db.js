@@ -1,12 +1,14 @@
 import mongoose from 'mongoose';
 import debug from 'debug';
 import util from 'util';
+import bluebird from 'bluebird';
 
 import envConfig from '../config/config';
 
 export default (callback) => {
   const mongoUri = envConfig.mongo.host;
   mongoose.connect(mongoUri, { server: { socketOptions: { keepAlive: 1 } } });
+  mongoose.Promise = bluebird;
   mongoose.connection.on('error', () => {
     throw new Error(`unable to connect to database: ${mongoUri}`);
   });
