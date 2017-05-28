@@ -11,11 +11,12 @@ export default ({ config, db }) => {
 
   const api = Router();
 
-  // murals page
+  // murals api
   api.use('/murals/featured-murals', featuredMurals);
   api.use('/murals/near-by-murals', nearByMurals);
   api.use('/murals/recently-uploaded-murals', recentlyUploadedMurals);
   api.use('/murals', murals());
+
   // perhaps expose some API metadata at the root
   api.get('/', (req, res) => {
     res.json({ version });

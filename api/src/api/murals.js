@@ -71,9 +71,9 @@ export default () => resource({
   },
 
   /** DELETE /:id - Delete a given entity */
-  delete({ mural }, res) {
+  async delete({ mural }, res) {
     try {
-      mural.remove();
+      await mural.remove();
       res.sendStatus(204);
     } catch (err) {
       console.log(err);
