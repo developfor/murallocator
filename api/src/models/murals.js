@@ -9,7 +9,7 @@ const muralSchema = new mongoose.Schema({
   age: { type: Number, min: 0 },
 });
 
-muralSchema.methods.updateMural = function updateModel(body) {
+muralSchema.methods.updateMural = function updateMural(body) {
   _.mapKeys(body, (value, key) => {
     if (key !== 'id') {
       this[key] = _.merge(this[key], value);
