@@ -10,8 +10,8 @@ const muralSchema = new mongoose.Schema({
   title: { type: String, trim: true },
   description: { type: String },
   image_id: { type: String },
-  created_at: { type: Date },
-  added_at: { type: Date },
+  created_at: { type: Date, default: Date.now },
+  made_at: { type: Date },
   is_approved: { type: Boolean, default: false },
 });
 

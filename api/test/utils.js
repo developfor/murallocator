@@ -1,23 +1,27 @@
 import mongoose from 'mongoose';
+import async from 'async';
 import config from '../config/config';
+import initializeDb from '../src/db';
 
 // ensure the NODE_ENV is set to 'test'
 // this is helpful when you would like to change behavior when testing
-process.env.NODE_ENV = 'test';
 
-before((done) => {
+beforeEach((done) => {
   function clearCollections() {
-    mongoose.connection.collections.each((collection) => {
-      mongoose.connection.collections[collection].remove(() => {});
+    async.forEach(mongoose.connection.collections, (collectionName, done) => {
+      const collection = mongoose.connection.collections[collectionName];
+      if (collection) {
+        collection.remove((err) => {
+          if (err && err.message !== 'ns not found') done(err);
+          done(null);
+        });
+      }
     });
     return done();
   }
 
   if (mongoose.connection.readyState === 0) {
-    mongoose.connect(config.test.db, (err) => {
-      if (err) throw err;
-      return clearCollections();
-    });
+    initializeDb(() => clearCollections());
   } else {
     return clearCollections();
   }
