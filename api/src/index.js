@@ -3,10 +3,15 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+
 import initializeDb from './db';
 import middleware from './middleware';
 import api from './api';
 import config from './config.json';
+
+// temp to test image processor
+import imageProcessor from './helpers/image_processor.js';
+console.log(imageProcessor())
 
 const app = express();
 app.server = http.createServer(app);
