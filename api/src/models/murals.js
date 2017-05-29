@@ -6,7 +6,7 @@ const muralSchema = new mongoose.Schema({
     first: { type: String, trim: true },
     last: { type: String, trim: true },
   },
-  //location: { type: mongoose.Schema.Types.Locations },
+  // location: { type: mongoose.Schema.Types.Locations },
   title: { type: String, trim: true },
   description: { type: String },
   image_id: { type: String },
