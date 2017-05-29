@@ -2,11 +2,17 @@ import mongoose from 'mongoose';
 import _ from 'lodash';
 
 const muralSchema = new mongoose.Schema({
-  name: {
-    first: String,
+  artist_name: {
+    first: { type: String, trim: true },
     last: { type: String, trim: true },
   },
-  age: { type: Number, min: 0 },
+  //location: { type: mongoose.Schema.Types.Locations },
+  title: { type: String, trim: true },
+  description: { type: String },
+  image_id: { type: String },
+  created_at: { type: Date },
+  added_at: { type: Date },
+  is_approved: { type: Boolean, default: false },
 });
 
 muralSchema.methods.updateMural = function updateMural(body) {
