@@ -5,20 +5,18 @@ const Jimp = require("jimp");
 
 module.exports = function () {
   // console.log("processor");
-  var image = Path.join(__dirname, '../tmp/mural.jpg');
+  var image = Path.join(__dirname, '../tmp/image_no_gps.jpg');
 
   try {
       new ExifImage({ image : image }, function (error, exifData) {
           if (error){
               console.log('Error: '+error.message);
           }else
-
-              console.log(exifData); // Do something with your data!
+              console.log(exifData.gps); // Do something with your data!
       });
   } catch (error) {
       console.log('Error: ' + error.message);
   }
-
 
   Jimp.read(image, function (err, pImage) {
       if (err) throw err;
