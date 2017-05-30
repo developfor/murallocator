@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import resource from 'resource-router-middleware';
 import Murals from '../models/murals';
 
