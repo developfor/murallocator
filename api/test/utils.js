@@ -1,10 +1,6 @@
 import mongoose from 'mongoose';
 import async from 'async';
-import config from '../config/config';
 import initializeDb from '../src/db';
-
-// ensure the NODE_ENV is set to 'test'
-// this is helpful when you would like to change behavior when testing
 
 beforeEach((done) => {
   function clearCollections() {
