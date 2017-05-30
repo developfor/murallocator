@@ -5,11 +5,12 @@ import { validMural } from '../data/murals.data';
 
 const should = chai.should();
 
-describe('Mural', () => {
+describe('Model Mural', () => {
   it('should create a new mural without errors', (done) => {
     const mural = new Murals(validMural);
     mural.validate((err) => {
       should.not.exist(err);
+      mural.save();
       mural.should.have.property('is_approved').equal(false);
       done();
     });
@@ -35,16 +36,3 @@ describe('Mural', () => {
     });
   });
 });
-
-
-  // artist_name: {
-  //   first: { type: String, trim: true },
-  //   last: { type: String, trim: true },
-  // },
-  // // location: { type: mongoose.Schema.Types.Locations },
-  // title: { type: String, trim: true },
-  // description: { type: String },
-  // image_id: { type: String },
-  // created_at: { type: Date, default: Date.now },
-  // made_at: { type: Date },
-  // is_approved: { type: Boolean, default: false },
