@@ -1,0 +1,42 @@
+@import "theme.less";
+
+.check-element{
+	li{
+		list-style: none; 
+		float:left; 
+		margin-right: 10px;
+		.check-element-box{
+			min-height: 60px; 
+			width: 150px; 
+			overflow: hidden; 
+			float:left;
+			// cursor: pointer;
+			.fancyToggle{
+				cursor: pointer;
+			}
+			img {
+				background-color: #EEEEEE; 
+				// height: 95%; 
+				// width: 95%;
+				margin: 0;
+				cursor: pointer;
+			}
+			.Checkbox.styledToggle {
+		        width: 95%;
+			    max-width: 75px;
+			}
+
+		}
+		.title-info {
+		    font-weight: 700;
+		    font-size: 16px;
+		    text-transform: capitalize;
+		}
+	}
+}
+
+@media (max-width: 549px) {
+        .check-element li .check-element-box{ 
+			width: 130px; 
+		}
+}
