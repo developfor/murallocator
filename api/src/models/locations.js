@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 
 const locationSchema = new mongoose.Schema({
-  name: { $type: String },
+  name: { type: String },
   loc: { type: String, coordinates: [Number] },
 }, { typeKey: '$type' });
 
