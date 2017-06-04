@@ -1,0 +1,104 @@
+.banner{
+  width: 100%;
+  height: 200px;
+  color: white;
+  background-image: url("/images/banner_image_b.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+    border-radius: 0px 0px 5px 5px;
+
+}
+
+.banner h1{
+  font-size: 35px;
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 0;
+}
+
+.banner h2{
+ font-size: 20px;
+}
+
+.banner-content{
+  margin: 0 10px;
+  padding-top: 50px;
+  bottom: 0;
+  position: absolute;
+  text-shadow: 1px 1px 27px rgba(0,0,0, 1);
+}
+
+.home-content{
+  margin: 0 10px;
+}
+
+.home-description{
+  border-bottom: 2px solid;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.value-props{
+  padding: 10px;
+}
+
+.value-prop{
+  padding: 0;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  color: black;
+ 
+}
+
+.value-prop:hover{
+  color: black;
+  background: #f3f3f3;
+}
+
+.value-prop-img-container{
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+
+.value-img {
+  display: block;
+  text-align: center;
+  margin: 2.5rem auto 20px;
+  margin-top: 10px;
+  width: 90px;
+  height: 90px;
+}
+
+.value-prop-btn{
+  line-height: 40px;
+}
+
+.button-description{
+  margin-bottom: 0;
+  margin-top: 10px; 
+  /*background-color: #FDCD0C !important;*/
+}
+.button-description:hover{
+  /*background-color: #e0b60b !important;*/
+}
+
+.featured-murals-title{
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 100;
+}
+
+.mural-list-img{
+  width: 100%;
+  float: left;
+}
+
+@media (min-width: 550px){
+  .value-img {
+      margin-bottom: 1rem;
+  }
+}

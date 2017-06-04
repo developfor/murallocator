@@ -8,8 +8,9 @@ import configureStore from './store/configure-store';
 import App from './App';
 import Home from './containers/HomeContainer';
 import About from './containers/AboutContainer';
-
-import './index.css';
+import './css/normalize.css';
+import './css/skeleton.css';
+import './css/index.css';
 
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
