@@ -53,57 +53,57 @@ class Home extends Component {
           Featured Murals
         </div>
 
-        <div className="value-props row">
+        <div className="value-props row home-mural-list">
           <a href="#" className="three columns value-prop"> 
            
-                <img className="mural-list-img" src="http://via.placeholder.com/350x200" />
+                <img className="mural-list-img" src="http://via.placeholder.com/550x310" />
                       
           </a>
 
            <a href="#" className="three columns value-prop"> 
               <div >
-                <img className="mural-list-img" src="http://via.placeholder.com/350x200" />
+                <img className="mural-list-img" src="http://via.placeholder.com/550x310" />
               </div>           
           </a>
 
            <a href="#" className="three columns value-prop"> 
               <div >
-                <img className="mural-list-img" src="http://via.placeholder.com/350x200" />
+                <img className="mural-list-img" src="http://via.placeholder.com/550x310" />
               </div>           
           </a>
 
 
            <a href="#" className="three columns value-prop"> 
               <div >
-                <img className="mural-list-img" src="http://via.placeholder.com/350x200" />
+                <img className="mural-list-img" src="http://via.placeholder.com/550x310" />
               </div>           
           </a>
         </div>
 
 
-        <div className="value-props row">
+        <div className="value-props row home-mural-list">
           <a href="#" className="three columns value-prop"> 
               <div >
-                <img className="mural-list-img" src="http://via.placeholder.com/350x200" />
+                <img className="mural-list-img" src="http://via.placeholder.com/550x310" />
               </div>           
           </a>
 
            <a href="#" className="three columns value-prop"> 
               <div >
-                <img className="mural-list-img" src="http://via.placeholder.com/350x200" />
+                <img className="mural-list-img" src="http://via.placeholder.com/550x310" />
               </div>           
           </a>
 
            <a href="#" className="three columns value-prop"> 
               <div >
-                <img className="mural-list-img" src="http://via.placeholder.com/350x200" />
+                <img className="mural-list-img" src="http://via.placeholder.com/550x310" />
               </div>           
           </a>
 
 
            <a href="#" className="three columns value-prop"> 
               <div >
-                <img className="mural-list-img" src="http://via.placeholder.com/350x200" />
+                <img className="mural-list-img" src="http://via.placeholder.com/550x310" />
               </div>           
           </a>
         </div>
