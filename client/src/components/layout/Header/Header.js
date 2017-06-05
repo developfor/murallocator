@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link
+} from 'react-router'
 
 import './Header.css';
 
@@ -8,9 +13,9 @@ class Header extends Component {
       <div className="header-bar border-bottom">
 
         <div className="header-left">
-          <a className="no-style-link" href="#">
+          <Link className="no-style-link" to="/">
             <img src="/images/logo.svg" alt="Mural Locator Logo" />
-          </a>
+          </Link>
         </div>
 
         <div className="header-right">
