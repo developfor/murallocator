@@ -7,8 +7,8 @@ import { validMural } from '../data/murals.data';
 const should = chai.should();
 
 describe('Model Location', () => {
-  it('should create a new location without errors', (done) => {
-    // const mural = new Murals(validMural);
+  it('should create a new location and be associated to mural', (done) => {
+    const mural = new Murals(validMural);
     const location = new Locations({
       name: 'Point',
       loc: {
@@ -17,6 +17,9 @@ describe('Model Location', () => {
       },
     });
     location.save();
+    mural.location = location;
+    mural.save();
+    mural.should.have.property('location').equal(location);
     done();
   });
 });
