@@ -1,10 +1,11 @@
 .header-bar{
   height:  35px;
-  position: relative;
   background: white;
   padding-top: 5px;
   width: 100%;
- 
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
 .header-left a{
   font-size: 20px;
@@ -53,3 +54,15 @@
   font-style: normal;
   text-decoration: none;
 }
+
+
+@media (min-width: 900px){
+  .header-bar {
+    position: relative;
+    
+  }
+}
+
+
+
+

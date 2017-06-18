@@ -1,0 +1,123 @@
+/*
+.p-content{
+  margin-bottom: 20px;
+  width: 48%;
+  display: inline-block;
+  margin-right: 2%;
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+.p-content img{
+  width: 100%;
+  background:#363636; 
+  max-height: 400px;
+}
+
+.p-content-info{
+  margin-bottom: 20px;
+}
+.p-content .small-text{
+  font-size: 14px;
+  line-height: 14.6px;
+}
+
+
+.p-content .button, .p-content  button, .p-content input[type="submit"], .p-content input[type="reset"], .p-content input[type="button"] {
+    display: inline-block;
+    color: #555;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 35px;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    background-color: transparent;
+    border-radius: 0px;
+    border: 3px solid #000000;
+    cursor: pointer;
+    box-sizing: border-box;
+    width: 100%;
+    white-space: normal;
+    background-color: #E23B3B;
+    border-color: #E23B3B;
+    color: white;
+    height: auto;
+    padding: 0px;
+}*/
+
+
+
+
+/*@media (max-width: 500px) {
+  .p-content{
+    width: 100%;
+  }
+}*/
+
+.inner-container{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.inner-container h2{
+      margin-bottom: 0;
+      margin-top: 10px;
+}
+
+.flex-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* or space-around */
+}
+
+.p-content {
+  width: calc(100% +4px);
+/*   outline:1px dotted #000; */
+  text-decoration: none;
+  color: #000;
+  margin-bottom:0px;
+}
+.p-content .p-content-description{
+  font-size: 12px;
+  margin-bottom:0px;
+}
+
+.p-content p{
+  margin-bottom:0px;
+}
+
+.flex-gallery figure {
+  margin: 10px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.flex-gallery  img {
+  max-width:calc(100% - 4px);
+  height: auto;
+  display: block;
+  border: 2px solid #000;
+  border-radius: 5px;
+}
+
+.flex-gallery figcaption {
+  margin-top:15px;
+}
+
+@media screen and (min-width:550px) {
+ .p-content {
+    width:calc(50% )
+  }
+}
+
+@media screen and (min-width:960px) {
+ .p-content {
+    width:calc(25% )
+  }
+}
+
+
+
+
+

@@ -1,0 +1,11 @@
+.container-content{
+  margin-top: 50px;
+}
+
+
+@media (min-width: 900px){
+  .container-content {
+    margin-top: 0px;
+  }
+}
+

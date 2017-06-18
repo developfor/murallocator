@@ -1,9 +1,10 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
   Link
-} from 'react-router'
+} from 'react-router';
+import './Home.css';
 
 class Home extends Component {
   render() {
