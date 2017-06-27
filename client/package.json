@@ -11,6 +11,7 @@
     "mapbox-gl": "^0.37.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-dropzone": "^3.13.3",
     "react-map-gl": "^2.0.3",
     "react-mapbox-gl": "^1.11.0",
     "react-redux": "^5.0.2",
