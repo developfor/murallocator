@@ -13,6 +13,8 @@ import Nearbymurals from './containers/NearbymuralsContainer';
 import About from './containers/AboutContainer';
 import Submitmural from './containers/SubmitmuralContainer';
 import Newlyaddedmurals from './containers/NewlyaddedmuralsContainer';
+import MuralMap from './containers/MapContainer';
+
 
 import './css/normalize.css';
 import './css/skeleton.css';
@@ -39,6 +41,7 @@ let router =
       <Route path="nearby-murals" component={Nearbymurals}/>
       <Route path="about" component={About}/>
       <Route path="submit-mural" component={Submitmural}/>
+      <Route path="map" component={MuralMap}/>
       <Route path="newly-added-murals" component={ Newlyaddedmurals }/>
 
        <Route path="*" component={NotFound} />

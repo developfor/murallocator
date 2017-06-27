@@ -10,7 +10,7 @@ import './Header.css';
 class Header extends Component {
   render() {
     return (
-      <div className="header-bar border-bottom">
+      <div className="header-bar">
 
         <div className="header-left">
           <Link className="no-style-link" to="/">

@@ -1,0 +1,11 @@
+.map-container{
+      width: 100%;
+}
+
+.marker {
+    display: block;  
+    border-radius: 50%;
+    cursor: pointer;
+    padding: 0;
+    border: 3px solid #000000;
+}
