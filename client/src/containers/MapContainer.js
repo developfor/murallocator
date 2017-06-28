@@ -51,7 +51,7 @@ class MuralMap extends Component {
     map.addControl(geoLocate);
 
     map.addControl(nav, 'bottom-right');
-   
+
 
     var framesPerSecond = 15;
     var initialOpacity = 1
@@ -60,159 +60,193 @@ class MuralMap extends Component {
     var radius = initialRadius;
     var maxRadius = 18;
 
-    
+
 
     map.on('load', function () {
 
-      geoLocate.on('geolocate', function (e) {
-        console.log(e.coords);
-        // map.setZoom(8);
+      // geoLocate.on('geolocate', function (e) {
+      //   console.log(e.coords);
+      //   // map.setZoom(8);
+      // });
+
+
+      var geojson = {
+        "type": "FeatureCollection",
+        "features": [
+          {
+            "type": "Feature",
+            "properties": {
+              "message": "Foo",
+              "iconSize": [60, 60]
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -66.324462890625,
+                -16.024695711685304
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "message": "Bar",
+              "iconSize": [50, 50]
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -61.2158203125,
+                -15.97189158092897
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "properties": {
+              "message": "Baz",
+              "iconSize": [40, 40]
+            },
+            "geometry": {
+              "type": "Point",
+              "coordinates": [
+                -63.29223632812499,
+                -18.28151823530889
+              ]
+            }
+          }
+        ]
+      };
+      let markerSize = 50
+
+      // add markers to map
+      geojson.features.forEach(function (marker) {
+        // create a DOM element for the marker
+        var el = document.createElement('div');
+        el.className = 'marker';
+        el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
+        el.style.width = markerSize + 'px';
+        el.style.height = markerSize + 'px';
+
+        // el.addEventListener('click', function() {
+        //     window.alert(marker.properties.message);
+        // });
+
+        // add marker to map
+        new mapboxgl.Marker(el, { offset: [-markerSize / 2, -markerSize / 2] })
+          .setLngLat(marker.geometry.coordinates)
+          .addTo(map);
       });
 
 
-               var geojson = {
-    "type": "FeatureCollection",
-    "features": [
-        {
-            "type": "Feature",
-            "properties": {
-                "message": "Foo",
-                "iconSize": [60, 60]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -66.324462890625,
-                    -16.024695711685304
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "message": "Bar",
-                "iconSize": [50, 50]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -61.2158203125,
-                    -15.97189158092897
-                ]
-            }
-        },
-        {
-            "type": "Feature",
-            "properties": {
-                "message": "Baz",
-                "iconSize": [40, 40]
-            },
-            "geometry": {
-                "type": "Point",
-                "coordinates": [
-                    -63.29223632812499,
-                    -18.28151823530889
-                ]
-            }
-        }
-    ]
-};
-let markerSize = 50
+      let userLocation = () => {
+        if ("geolocation" in navigator) {
+          navigator.geolocation.getCurrentPosition(function (location) {
+            // console.log(location.coords.latitude);
+            // console.log(location.coords.longitude);
+            // console.log(location.coords.accuracy);
 
-// add markers to map
-geojson.features.forEach(function(marker) {
-    // create a DOM element for the marker
-    var el = document.createElement('div');
-    el.className = 'marker';
-    el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
-    el.style.width = markerSize + 'px';
-    el.style.height = markerSize + 'px';
+            /* geolocation is available */
 
-    // el.addEventListener('click', function() {
-    //     window.alert(marker.properties.message);
+            // Add a source and layer displaying a point which will be animated in a circle.
+            map.addSource('point', {
+              "type": "geojson",
+              "data": {
+                "type": "Point",
+                "coordinates": [
+                  location.coords.longitude, location.coords.latitude
+                ]
+              }
+            });
+
+            window.setInterval(function() {
+              navigator.geolocation.getCurrentPosition( (updateLocation) => {
+                map.getSource('point').setData(
+                  {"geometry": {"type": "Point", "coordinates": [updateLocation.coords.longitude, updateLocation.coords.latitude]}, "type": "Feature", "properties": {}}
+                );
+              });
+            }, 5000);
+
+            map.addLayer({
+              "id": "point",
+              "source": "point",
+              "type": "circle",
+              "paint": {
+                "circle-radius": initialRadius,
+                "circle-radius-transition": { duration: 0 },
+                "circle-opacity-transition": { duration: 0 },
+                "circle-color": "#007cbf"
+              }
+            });
+
+            map.addLayer({
+              "id": "point1",
+              "source": "point",
+              "type": "circle",
+              "paint": {
+                "circle-radius": initialRadius,
+                "circle-color": "#007cbf"
+              }
+            });
+
+    //           map.addLayer({
+    //     'id': '3d-buildings',
+    //     'source': 'composite',
+    //     'source-layer': 'building',
+    //     'filter': ['==', 'extrude', 'true'],
+    //     'type': 'fill-extrusion',
+    //     'minzoom': 15,
+    //     'paint': {
+    //         'fill-extrusion-color': '#aaa',
+    //         'fill-extrusion-height': {
+    //             'type': 'identity',
+    //             'property': 'height'
+    //         },
+    //         'fill-extrusion-base': {
+    //             'type': 'identity',
+    //             'property': 'min_height'
+    //         },
+    //         'fill-extrusion-opacity': .6
+    //     }
     // });
 
-    // add marker to map
-    new mapboxgl.Marker(el, {offset: [-markerSize / 2, -markerSize / 2]})
-        .setLngLat(marker.geometry.coordinates)
-        .addTo(map);
-});
 
 
 
-      if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(function (location) {
-          console.log(location.coords.latitude);
-          console.log(location.coords.longitude);
-          console.log(location.coords.accuracy);
 
-          /* geolocation is available */
+            function animateMarker(timestamp) {
+              setTimeout(function () {
+                requestAnimationFrame(animateMarker);
 
-          // Add a source and layer displaying a point which will be animated in a circle.
-          map.addSource('point', {
-            "type": "geojson",
-            "data": {
-              "type": "Point",
-              "coordinates": [
-               location.coords.longitude, location.coords.latitude
-              ]
+                radius += (maxRadius - radius) / framesPerSecond;
+                opacity -= (.9 / framesPerSecond);
+
+
+                if (opacity <= 0) {
+                  radius = initialRadius;
+                  opacity = initialOpacity;
+                }
+
+                map.setPaintProperty('point', 'circle-radius', radius);
+                map.setPaintProperty('point', 'circle-opacity', opacity);
+
+
+              }, 1000 / framesPerSecond);
+
             }
+
+            // Start the animation.
+            animateMarker(0);
+
           });
+        } else {
+          /* geolocation IS NOT available */
+        }
 
-          map.addLayer({
-            "id": "point",
-            "source": "point",
-            "type": "circle",
-            "paint": {
-              "circle-radius": initialRadius,
-              "circle-radius-transition": { duration: 0 },
-              "circle-opacity-transition": { duration: 0 },
-              "circle-color": "#007cbf"
-            }
-          });
-
-          map.addLayer({
-            "id": "point1",
-            "source": "point",
-            "type": "circle",
-            "paint": {
-              "circle-radius": initialRadius,
-              "circle-color": "#007cbf"
-            }
-          });
-
-
- 
-
-
-          function animateMarker(timestamp) {
-            setTimeout(function () {
-              requestAnimationFrame(animateMarker);
-
-              radius += (maxRadius - radius) / framesPerSecond;
-              opacity -= (.9 / framesPerSecond);
-
-
-              if (opacity <= 0) {
-                radius = initialRadius;
-                opacity = initialOpacity;
-              }
-
-              map.setPaintProperty('point', 'circle-radius', radius);
-              map.setPaintProperty('point', 'circle-opacity', opacity);
-
-
-            }, 1000 / framesPerSecond);
-
-          }
-
-          // Start the animation.
-          animateMarker(0);
-
-        });
-      } else {
-        /* geolocation IS NOT available */
       }
+      userLocation();
+      // setInterval(() => {  }, 3000);
+      
 
 
 
