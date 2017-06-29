@@ -1,4 +1,9 @@
 module.exports.validMural = {
+  submitter_name: {
+    first: 'FirstName',
+    last: 'LastName',
+  },
+  submitter_email: 'email@example.com',
   artist_name: {
     first: 'Foo',
     last: 'Bar',
