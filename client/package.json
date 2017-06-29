@@ -4,7 +4,7 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "devDependencies": {
-    "react-scripts": "1.0.7"
+    "react-scripts": "0.8.5"
   },
   "dependencies": {
     "leaflet.locatecontrol": "^0.61.0",
