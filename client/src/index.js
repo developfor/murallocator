@@ -7,6 +7,7 @@ import configureStore from './store/configure-store';
 
 import App from './App';
 import Home from './containers/HomeContainer';
+import UploadMural from './containers/UploadMuralContainer';
 import About from './containers/AboutContainer';
 
 import './index.css';
@@ -30,6 +31,7 @@ let router =
     <Route path="/" component={Main}>
       <IndexRoute component={Home}/>
       <Route path="about" component={About}/>
+      <Route path="upload-mural" component={UploadMural}/>
     </Route>
   </Router>
 
