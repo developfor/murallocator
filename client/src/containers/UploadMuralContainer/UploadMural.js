@@ -16,7 +16,7 @@ class UploadMural extends Component {
   render() {
     const { handleSubmit, pristine, reset, submitting, values } = this.props;
     return (
-      <div className="inner-container">
+      <div className="inner-container upload-form">
         <form onSubmit={handleSubmit(this.handleSubmitValues)}>
           <h2>Your Information</h2>
           <div className="row">

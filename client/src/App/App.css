@@ -18,9 +18,26 @@ body {
 }
 
 .field-error {
-  color: orange;
+  color: red;
 }
 
+input, textarea{
+  border: 3px solid #000 !important;
+}
+
+
+.button.button-primary:hover, button.button-primary:hover, input[type="submit"].button-primary:hover, input[type="reset"].button-primary:hover, input[type="button"].button-primary:hover, .button.button-primary:focus, button.button-primary:focus, input[type="submit"].button-primary:focus, input[type="reset"].button-primary:focus, input[type="button"].button-primary:focus {
+    color: #FFF;
+    background-color: #000;
+    border-color: #000;
+}
+
+
+.button.button-primary, button.button-primary, input[type="submit"].button-primary, input[type="reset"].button-primary, input[type="button"].button-primary {
+    color: #FFF;
+    background-color: #888;
+    border-color: #888;
+}
 
 @media (min-width: 900px){
   .container-content {
