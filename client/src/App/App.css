@@ -17,6 +17,10 @@ body {
   margin-top: 40px;
 }
 
+.field-error {
+  color: orange;
+}
+
 
 @media (min-width: 900px){
   .container-content {

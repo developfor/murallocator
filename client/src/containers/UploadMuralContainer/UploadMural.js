@@ -50,7 +50,7 @@ class UploadMural extends Component {
               <div>
                 <Field
                   className="u-full-width"
-                  name="mural-title"
+                  name="muralTitle"
                   component={renderField}
                   type="text"
                   label="Mural Title"
@@ -61,7 +61,7 @@ class UploadMural extends Component {
               <div>
                 <Field
                   className="u-full-width"
-                  name="artist-name"
+                  name="artistName"
                   component={renderField}
                   type="text"
                   label="Artist Name"
@@ -74,7 +74,6 @@ class UploadMural extends Component {
             <div className="twelve columns">
               <div>
                 <Field
-                  rows="90"
                   className="u-full-width"
                   name="description"
                   component={renderTextField}
@@ -91,8 +90,36 @@ class UploadMural extends Component {
   }
 }
 
-const validate = (values /*, dispatch */) => {
-  console.log(values);
+const validate = (values) => {
+  const errors = {};
+ 
+  // email validation
+  if (!values.email) {
+    errors.email = 'Please enter an email address'
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = 'This email address is not valid'
+  }
+
+  // description
+  if (!values.description) {
+    errors.description = 'Please enter a description'
+  }
+
+  // artist name
+  if (!values.artistName) {
+    errors.artistName = 'Please enter the artist\'s name'
+  }
+
+  // mural title
+  if (!values.muralTitle) {
+    errors.muralTitle = 'Please enter a mural title'
+  }
+
+  // name
+  if (!values.name) {
+    errors.name = 'Please enter your name'
+  }
+  return errors;
 }
 
 export default reduxForm({
