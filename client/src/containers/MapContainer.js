@@ -76,6 +76,7 @@ class MuralMap extends Component {
           {
             "type": "Feature",
             "properties": {
+              "image": "http://www.stpetemuraltour.com/wp-content/uploads/2014/08/Tes-One-and-Pale-Horse-Design-St-Pete-Florida-Mural-1920-by-1000.jpg",
               "message": "Foo",
               "iconSize": [60, 60]
             },
@@ -90,6 +91,7 @@ class MuralMap extends Component {
           {
             "type": "Feature",
             "properties": {
+              "image": "http://www.stpetemuraltour.com/wp-content/uploads/2014/08/Tes-One-and-Pale-Horse-Design-St-Pete-Florida-Mural-1920-by-1000.jpg",
               "message": "Bar",
               "iconSize": [50, 50]
             },
@@ -104,6 +106,7 @@ class MuralMap extends Component {
           {
             "type": "Feature",
             "properties": {
+              "image": "http://www.stpetemuraltour.com/wp-content/uploads/2014/08/Tes-One-and-Pale-Horse-Design-St-Pete-Florida-Mural-1920-by-1000.jpg",
               "message": "Baz",
               "iconSize": [40, 40]
             },
@@ -122,9 +125,15 @@ class MuralMap extends Component {
       // add markers to map
       geojson.features.forEach(function (marker) {
         // create a DOM element for the marker
+        // console.log(marker)
         var el = document.createElement('div');
         el.className = 'marker';
-        el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
+        // marker
+        // el.style.backgroundImage = "url(${marker.properties.image + marker.properties.iconSize.join('/')}/)"  
+        el.style.backgroundImage = 'url('+ marker.properties.image + '/)';
+        // el.style.backgroundSize =  markerSize + 'px';
+        // el.style.backgroundImage = 'url(https://placekitten.com/g/' + marker.properties.iconSize.join('/') + '/)';
+        console.log(el.style);
         el.style.width = markerSize + 'px';
         el.style.height = markerSize + 'px';
 
