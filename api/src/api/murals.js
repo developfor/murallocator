@@ -1,6 +1,5 @@
 import resource from 'resource-router-middleware';
 import Murals from '../models/murals';
-
 const SERVER_ERROR_MESSAGE = 'Something Broke';
 
 /* eslint-disable no-unused-vars */
