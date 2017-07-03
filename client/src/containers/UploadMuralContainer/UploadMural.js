@@ -12,8 +12,14 @@ class UploadMural extends Component {
 
   handleSubmitValues = (values) => {
   
-    
-    fetch('http://localhost:3001/api/murals', { method: 'POST', body: 'jii' })
+    console.log(values)
+    fetch('http://localhost:3001/api/murals', { 
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      },
+      body: JSON.stringify(values) 
+    })
       .then(function(res) {
         console.log(res)
           return res.json();
@@ -40,14 +46,28 @@ class UploadMural extends Component {
               <div>
                 <Field
                   className="u-full-width"
-                  name="name"
+                  name="firstName"
                   component={renderField}
                   type="text"
-                  label="Name"
+                  label="First Name"
                 />
               </div>
             </div>
             <div className="six columns">
+              <div>
+                <Field
+                  className="u-full-width"
+                  name="lastName"
+                  component={renderField}
+                  type="text"
+                  label="Last Name"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="row">
+            <div className=" columns">
               <div>
                 <Field
                   className="u-full-width"
@@ -66,7 +86,7 @@ class UploadMural extends Component {
               <div>
                 <Field
                   className="u-full-width"
-                  name="muralTitle"
+                  name="title"
                   component={renderField}
                   type="text"
                   label="Mural Title"

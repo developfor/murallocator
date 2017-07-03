@@ -42,14 +42,15 @@ export default () => resource({
 
   /** POST / - Create a new entity */
   async create({ body }, req, res) {
-    console.log(req)
+    // console.log(body)
     const mural = new Murals(body);
     // console.log(mural)
     try {
       const savedMural = await mural.save();
       res.json(savedMural);
+      console.log("savedMural")
     } catch (err) {
-      // console.log(err);
+      console.log(err);
       res.status(500).send(SERVER_ERROR_MESSAGE);
     }
   },

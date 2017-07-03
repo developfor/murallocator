@@ -20,10 +20,18 @@ app.use(cors({
   exposedHeaders: config.corsHeaders,
 }));
 
-app.use(bodyParser.json({
-  // limit: config.bodyLimit,
+app.use(bodyParser.urlencoded({
   extended: true
 }));
+// app.use(bodyParser.urlencoded({ extended: false }));  
+// app.use(bodyParser.urlencoded({ extended: false }))
+
+app.use(bodyParser.json());
+// app.use(function (req, res) {
+//   res.setHeader('Content-Type', 'text/plain')
+//   res.write('you posted:\n')
+//   res.end(JSON.stringify(req.body, null, 2))
+// })
 
 // app.use(bodyParser.urlencoded({
 //   extended: true
