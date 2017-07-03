@@ -21,8 +21,13 @@ app.use(cors({
 }));
 
 app.use(bodyParser.json({
-  limit: config.bodyLimit,
+  // limit: config.bodyLimit,
+  extended: true
 }));
+
+// app.use(bodyParser.urlencoded({
+//   extended: true
+// }));
 
 // connect to db
 initializeDb((db) => {

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { renderField, renderTextField } from '../../components/form/fields';
+import fetch from 'node-fetch' 
 
 import './upload-mural.css';
 
@@ -10,7 +11,22 @@ class UploadMural extends Component {
   }
 
   handleSubmitValues = (values) => {
-    console.log(values);
+  
+    
+    fetch('http://localhost:3001/api/murals', { method: 'POST', body: 'jii' })
+      .then(function(res) {
+        console.log(res)
+          return res.json();
+      }).then(function(json) {
+          console.log(json);
+      });
+
+    // fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_hour.geojson')
+    //   .then(function(res) {
+    //       return res.text();
+    //   }).then(function(body) {
+    //       console.log(body);
+    //   });
   }
 
   render() {
