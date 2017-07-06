@@ -1,6 +1,10 @@
 import resource from 'resource-router-middleware';
 import Murals from '../models/murals';
+import shortid from 'shortid';
+
 const SERVER_ERROR_MESSAGE = 'Something Broke';
+
+
 
 /* eslint-disable no-unused-vars */
 export default () => resource({
@@ -43,13 +47,25 @@ export default () => resource({
   async create({ body }, req, res) {
     // console.log(body)
     const mural = new Murals(body);
-    // console.log(mural)
+
+    shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-');
+
+    mural.mural_id = shortid.generate();
+    mural.is_approved =  false;
+    mural.submitter_name.first = body.email;
+    mural.submitter_email = body.email;
+    mural.title = body.title;
+    mural.description = body.description;
+    mural.artist_name = body.artistName;
+    
+    console.log(mural)
+
     try {
       const savedMural = await mural.save();
       res.json(savedMural);
-      console.log("savedMural")
+      // console.log("savedMural")
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       res.status(500).send(SERVER_ERROR_MESSAGE);
     }
   },

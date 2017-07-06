@@ -23,6 +23,7 @@ const muralSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Locations',
   },
+  mural_id: { type: String, required: true, unique: true },
   title: { type: String, trim: true, required: true },
   description: { type: String },
   image_id: { type: String, required: true },

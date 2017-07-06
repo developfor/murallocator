@@ -10,15 +10,20 @@ class UploadMural extends Component {
     super();
   }
 
+  // JSON.stringify({
+  //       name: 'dean',
+  //       login: 'dean',
+  //     })
+
   handleSubmitValues = (values) => {
   
-    console.log(values)
-    fetch('http://localhost:3001/api/murals', { 
+    // console.log(values)
+    fetch('/api/murals', { 
       method: 'POST', 
       headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type':  "application/json; charset=utf-8"
       },
-      body: JSON.stringify(values) 
+      body:  JSON.stringify(values)
     })
       .then(function(res) {
         console.log(res)
