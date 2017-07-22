@@ -3497,14 +3497,7 @@ node-emoji@^1.4.1:
   dependencies:
     string.prototype.codepointat "^0.2.0"
 
-node-fetch@^1.0.1:
-  version "1.6.3"
-  resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.6.3.tgz#dc234edd6489982d58e8f0db4f695029abcd8c04"
-  dependencies:
-    encoding "^0.1.11"
-    is-stream "^1.0.1"
-
-node-fetch@^1.7.1:
+node-fetch@^1.0.1, node-fetch@^1.7.1:
   version "1.7.1"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-1.7.1.tgz#899cb3d0a3c92f952c47f1b876f4c8aeabd400d5"
   dependencies:
@@ -4266,7 +4259,7 @@ react-dom@^15.4.2:
     object-assign "^4.1.0"
     prop-types "~15.5.7"
 
-react-dropzone@^3.13.3:
+react-dropzone@^3.11.0, react-dropzone@^3.13.3:
   version "3.13.3"
   resolved "https://registry.yarnpkg.com/react-dropzone/-/react-dropzone-3.13.3.tgz#b8bde4b5a12842f85196b45e8cc2959834b81962"
   dependencies:
@@ -4454,6 +4447,13 @@ redux-devtools@^3.3.2:
     lodash "^4.2.0"
     prop-types "^15.5.7"
     redux-devtools-instrument "^1.0.1"
+
+redux-form-dropzone@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/redux-form-dropzone/-/redux-form-dropzone-0.0.1.tgz#db1c286ec155ae2580c17ea5cfc132bf49a6443e"
+  dependencies:
+    react "^15.4.2"
+    react-dropzone "^3.11.0"
 
 redux-form@^6.5.0:
   version "6.7.0"

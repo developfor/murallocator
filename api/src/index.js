@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
+import multer from 'multer';
 
 import initializeDb from './db';
 import middleware from './middleware';
@@ -11,6 +12,7 @@ import config from './config.json';
 
 const app = express();
 app.server = http.createServer(app);
+var upload = multer({ dest: 'uploads/' })
 
 // logger
 app.use(morgan('dev'));
@@ -26,7 +28,8 @@ app.use(bodyParser.urlencoded({
 // app.use(bodyParser.urlencoded({ extended: false }));  
 // app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+app.use(multer({dest:'./uploads/'}).fields('photo'));
 // app.use(function (req, res) {
 //   res.setHeader('Content-Type', 'text/plain')
 //   res.write('you posted:\n')

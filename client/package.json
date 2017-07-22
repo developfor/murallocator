@@ -18,6 +18,7 @@
     "redux": "^3.6.0",
     "redux-devtools": "^3.3.2",
     "redux-form": "^6.5.0",
+    "redux-form-dropzone": "^0.0.1",
     "redux-thunk": "^2.2.0",
     "skeleton-css": "^2.0.4"
   },

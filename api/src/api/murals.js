@@ -44,11 +44,13 @@ export default () => resource({
   },
 
   /** POST / - Create a new entity */
-  async create({ body }, req, res) {
-    // console.log(body)
+  async create({  body }, req, res) {
+    console.log(req)
+    console.log(res)
+
     const mural = new Murals(body);
 
-    shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-');
+    // shortid.characters('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-');
 
     mural.mural_id = shortid.generate();
     mural.is_approved =  false;
@@ -58,7 +60,7 @@ export default () => resource({
     mural.description = body.description;
     mural.artist_name = body.artistName;
     
-    console.log(mural)
+    // console.log(mural)
 
     try {
       const savedMural = await mural.save();

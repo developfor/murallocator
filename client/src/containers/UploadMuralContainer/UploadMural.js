@@ -1,43 +1,60 @@
 import React, {Component} from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { renderField, renderTextField } from '../../components/form/fields';
-import fetch from 'node-fetch' 
+
+import 'whatwg-fetch'
 
 import './upload-mural.css';
+
+// const FILE_FIELD_NAME = 'files';
+
+// const renderDropzoneInput = (field) => {
+//   const files = field.input.value;
+//   return (
+//     <div>
+//       <Dropzone
+//         name={field.name}
+//         onDrop={( filesToUpload, e ) => field.input.onChange(filesToUpload)}
+//       >
+//         <div>Try dropping some files here, or click to select files to upload.</div>
+//       </Dropzone>
+//       {field.meta.touched &&
+//         field.meta.error &&
+//         <span className="error">{field.meta.error}</span>}
+//       {files && Array.isArray(files) && (
+//         <ul>
+//           { files.map((file, i) => <li key={i}>{file.name}</li>) }
+//         </ul>
+//       )}
+//     </div>
+//   );
+// }
+
+
 
 class UploadMural extends Component {
   constructor() {
     super();
   }
 
-  // JSON.stringify({
-  //       name: 'dean',
-  //       login: 'dean',
-  //     })
-
   handleSubmitValues = (values) => {
-  
-    // console.log(values)
+    console.log(values)
     fetch('/api/murals', { 
+      mode: 'no-cors',
       method: 'POST', 
-      headers: {
-        'Content-Type':  "application/json; charset=utf-8"
-      },
-      body:  JSON.stringify(values)
+      // headers: { 'content-type': 'multipart/form-data' },
+      // headers: {
+      //   'Content-Type':  "application/json; charset=utf-8"
+      // },
+      body:  values
     })
-      .then(function(res) {
-        console.log(res)
-          return res.json();
-      }).then(function(json) {
-          console.log(json);
-      });
+    .then(function(res) {
+      console.log(res)
+        return res.json();
+    }).then(function(json) {
+        console.log(json);
+    });
 
-    // fetch('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_hour.geojson')
-    //   .then(function(res) {
-    //       return res.text();
-    //   }).then(function(body) {
-    //       console.log(body);
-    //   });
   }
 
   render() {
@@ -114,13 +131,7 @@ class UploadMural extends Component {
           <div className="row">
             <div className="twelve columns">
               <div>
-                <Field
-                  className="u-full-width"
-                  name="description"
-                  component={renderTextField}
-                  type="text"
-                  label="Description of Mural"
-                />
+                <Field name="mural_pic" component="input" type="file"/>
               </div>
             </div>
           </div>
