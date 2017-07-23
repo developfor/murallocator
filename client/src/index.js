@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Provider} from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-
-import configureStore from './store/configure-store';
+import AppState from './stores/appState';
 
 import App from './App';
 import NotFound from './components/NotFound';
@@ -24,28 +22,26 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 // Needed for onTouchTap
 // http://stackoverflow.com/a/34015469/988941
+const appState = new AppState();
 injectTapEventPlugin()
 
-const store = configureStore();
+
 
 const Main = (props) => (
-  <Provider store={store}>
     <App children={props.children}/>
-  </Provider>
 )
 
 let router = 
   <Router onUpdate={() => window.scrollTo(0, 0)} history={browserHistory}>
-    <Route path="/" component={Main}>
-      <IndexRoute component={Home}/>
-      <Route path="nearby-murals" component={Nearbymurals}/>
-      <Route path="about" component={About}/>
-      <Route path="submit-mural" component={Submitmural}/>
-      <Route path="map" component={MuralMap}/>
-      <Route path="newly-added-murals" component={ Newlyaddedmurals }/>
-      <Route path="upload-mural" component={ UploadMural }/>
-
-       <Route path="*" component={NotFound} />
+    <Route path="/" component={Main} appState={appState} >
+      <IndexRoute component={Home} appState={appState} />
+      <Route path="nearby-murals" component={Nearbymurals} appState={appState} />
+      <Route path="about" component={About} appState={appState} />
+      <Route path="submit-mural" component={Submitmural} appState={appState} />
+      <Route path="map" component={MuralMap} appState={appState} />
+      <Route path="newly-added-murals" component={ Newlyaddedmurals } appState={appState} />
+      <Route path="upload-mural" component={ UploadMural }appState={appState} />
+       <Route path="*" component={NotFound} appState={appState} />
     </Route>
   </Router>
 
