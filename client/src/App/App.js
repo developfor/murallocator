@@ -13,6 +13,10 @@ class App extends Component {
   }
 
   render() {
+    let footer = ""
+    if(location.pathname !== "/map"){
+      footer =  <Footer />
+    }
     return (
       <div className="App">
         <div className="container">
@@ -20,6 +24,7 @@ class App extends Component {
           <div className="container-content">
             {this.props.children}
           </div>
+          {footer}
         </div>
       </div>
     );

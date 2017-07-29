@@ -16,10 +16,10 @@ class MuralMap extends Component {
   }
 
   windowHeight() {
-    document.getElementById("mapContainer").style.height = window.innerHeight - 50 + 'px';
+    document.getElementById("mapContainer").style.height = window.innerHeight - 40 + 'px';
     window.addEventListener('resize', function () {
       console.log(this)
-      document.getElementById("mapContainer").style.height = window.innerHeight - 50 + 'px';
+      document.getElementById("mapContainer").style.height = window.innerHeight - 40 + 'px';
     });
   }
 

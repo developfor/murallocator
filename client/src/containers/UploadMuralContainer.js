@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
 import './UploadMural.css';
 
+// import { observer } from 'mobx-react';
 import Dropzone from 'react-dropzone'
 
+import validatorjs from 'validatorjs';
+
+const plugins = { dvr: validatorjs };
 
 class UploadMural extends Component {
 
@@ -18,10 +22,39 @@ onDrop(files) {
     });
   }
 
+onSubmit(e) {
+    e.preventDefault();
+    var data = new FormData();
+    var imagedata = document.querySelector('input[type="file"]').files[0];
+    data.append("data", imagedata);
+    console.log(imagedata)
+
+    fetch("", {
+      mode: 'no-cors',
+      method: "POST",
+      headers: {
+        "Content-Type": "multipart/form-data",
+        "Accept": "application/json",
+        "type": "formData"
+      },
+      body: data
+    }).then(function (res) {
+      if (res.ok) {
+        alert("Perfect! ");
+      } else if (res.status == 401) {
+        alert("Oops! ");
+      } else if (res.status === 404 ){
+        alert("Page not found")
+      }
+    }, function (e) {
+      alert("Error submitting form!");
+    });
+  }
+
 render(){
 return(
   <div className="inner-container">
-    <form>
+    <form encType="multipart/form-data" action="">
       <h2>Your Information</h2>
       <div className="row">  
         <div className="six columns">
@@ -54,10 +87,10 @@ return(
       </div> 
       <div className="dropzone">
         <Dropzone className="mural-upload" onDrop={this.onDrop.bind(this)}>
-          <p>Upload Photo.</p>
+          <p>Upload Mural Photo.</p>
         </Dropzone>
       </div>
-      <input className="button-primary" type="submit" value="Submit" />
+      <input className="button-primary" type="submit" value="Submit" onClick={this.onSubmit.bind(this)} />
 
     </form>
   </div>
