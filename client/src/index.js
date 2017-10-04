@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 
-import configureStore from './store/configure-store';
+import configureStore from './store/configureStore';
 
 import App from './App';
 import Home from './containers/HomeContainer';
@@ -14,8 +14,6 @@ import './index.css';
 
 import injectTapEventPlugin from 'react-tap-event-plugin'
 
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
 injectTapEventPlugin()
 
 const store = configureStore();

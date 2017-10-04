@@ -1,4 +1,36 @@
-.header-bar {
+.navbar {
+
+}
+
+.logo{
+  margin-top: 15px;
+}
+
+
+
+.navbar-collapse.collapse {
+  display: block!important;
+}
+
+.navbar-nav>li, .navbar-nav {
+  float: left !important;
+}
+
+.navbar-nav.navbar-right:last-child {
+  margin-right: -15px !important;
+}
+
+.navbar-right {
+  float: right!important;
+}
+
+.navbar a {
+  color: #020202;
+  background: white !important;
+}
+
+
+/* .header-bar {
   height: 35px;
   background: white;
   padding-top: 5px;
@@ -62,4 +94,4 @@
   .header-bar {
     position: relative;
   }
-}
+} */
