@@ -71,6 +71,34 @@ app.service('/murals-uploads').before({
     ]
 });
 
+
+
+const murals = {
+    find(params) { 
+        // res.send('hello world');
+        return Promise.resolve(
+            {
+               data: "find murals"
+            }
+        );
+    },
+    get(id, params) {console.log("test get")
+
+    },
+    create(data, params) {},
+    update(id, data, params) {},
+    patch(id, data, params) {},
+    remove(id, params) {},
+    setup(app, path) {}
+  }
+  
+app.use('/murals', murals);
+
+
+app.use('/', function(req, res) {
+        res.send({data: 'root'});
+});
+
 // Register a nicer error handler than the default Express one
 app.use(handler());
 
